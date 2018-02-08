@@ -4,7 +4,12 @@ service boinc-client start
 sleep 10
 service boinc-client status
 echo "----------sync project----------------"
-boinccmd --project_attach http://srbase.my-firewall.org/sr5/ 1415_a1d6ad98cf9e20609e5ab241cd29054a
+#boinccmd --project_attach http://srbase.my-firewall.org/sr5/ 1415_a1d6ad98cf9e20609e5ab241cd29054a
+
+echo "----------debug----------------"
+cat /etc/hosts
+
+echo $(grep $(hostname) /etc/hosts | cut -f1) fakehostname >> /etc/hosts && boinccmd --get_host_info
 
 echo "-------------host info----------------"
 HOST_INFO="$(boinccmd --get_host_info)"
@@ -14,22 +19,22 @@ echo "$HOST_INFO"
 echo "---------------hostname---------------"
 HOSTNAME=$('hostname')
 echo "$HOSTNAME"
-echo $GITHUB_USER
-echo $GITHUB_PASSWORD
+#echo $GITHUB_USER
+#echo $GITHUB_PASSWORD
 #GITHUB_USER=''
 #GITHUB_PASSWORD=''
 
-echo "------------pushing to gist-----------"
-echo '{"description":"","public":false,"files":{"host":{"content":"$HOST_INFO"},"cg":{"content":"$HOST_GRAPHIC_CARDS"}}}' | curl --user "$GITHUB_USER:$GITHUB_PASSWORD" --data @- https://api.github.com/gists
+#echo "------------pushing to gist-----------"
+#echo '{"description":"","public":false,"files":{"host":{"content":"$HOST_INFO"},"cg":{"content":"$HOST_GRAPHIC_CARDS"}}}' | curl --user "$GITHUB_USER:$GITHUB_PASSWORD" --data @- https://api.github.com/gists
 
 echo "---starting work & task monitoring----"
 
 echo "starting to work & sleep"
-for i in {1..600}
-do
-   echo "-------------Iteration $i-------------"
-   sleep 60
-   boinccmd --get_state | grep 'total_duration\|total_active_duration\|total_gpu_active_duration'
-   boinccmd --project http://srbase.my-firewall.org/sr5/ update
-   python /check.py
-done
+#for i in {1..600}
+#do
+#   echo "-------------Iteration $i-------------"
+#   sleep 60
+#   boinccmd --get_state | grep 'total_duration\|total_active_duration\|total_gpu_active_duration'
+#   boinccmd --project http://srbase.my-firewall.org/sr5/ update
+#   python /check.py
+#done
