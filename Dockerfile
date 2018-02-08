@@ -8,6 +8,6 @@ COPY check.py /check.py
 COPY global_prefs_override.xml /etc/boinc-client/global_prefs_override.xml
 RUN chmod 777 /check.py
 
-RUN /bin/bash -c "source /start.sh"
+RUN echo $(grep $(hostname) /etc/hosts | cut -f1) fakehostname >> /etc/hosts && /bin/bash -c "source /start.sh"
 
 CMD ["sleep", "600000000"]

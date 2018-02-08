@@ -9,8 +9,8 @@ boinccmd --project_attach http://srbase.my-firewall.org/sr5/ 1415_a1d6ad98cf9e20
 echo "-------------host info----------------"
 HOST_INFO="$(boinccmd --get_host_info)"
 echo "$HOST_INFO"
-HOST_GRAPHIC_CARDS="$(lspci | grep -i --color 'vga\|3d\|2d')"
-echo "$HOST_GRAPHIC_CARDS"
+#HOST_GRAPHIC_CARDS="$(lspci | grep -i --color 'vga\|3d\|2d')"
+#echo "$HOST_GRAPHIC_CARDS"
 echo "---------------hostname---------------"
 HOSTNAME=$('hostname')
 echo "$HOSTNAME"
