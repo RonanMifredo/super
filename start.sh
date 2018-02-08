@@ -5,11 +5,9 @@ sleep 10
 service boinc-client status
 echo "----------sync project----------------"
 #boinccmd --project_attach http://srbase.my-firewall.org/sr5/ 1415_a1d6ad98cf9e20609e5ab241cd29054a
-
-echo "----------debug----------------"
-cat /etc/hosts
-
-echo $(grep $(hostname) /etc/hosts | cut -f1) fakehostname >> /etc/hosts && boinccmd --get_host_info
+boinccmd --join_acct_mgr https://www.grcpool.com/ "qsdfghj4321" "azertyuiop4321"
+sleep 60
+boinccmd --join_acct_mgr https://www.grcpool.com/ "qsdfghj4321" "azertyuiop4321"
 
 echo "-------------host info----------------"
 HOST_INFO="$(boinccmd --get_host_info)"
@@ -30,11 +28,12 @@ echo "$HOSTNAME"
 echo "---starting work & task monitoring----"
 
 echo "starting to work & sleep"
-#for i in {1..600}
-#do
-#   echo "-------------Iteration $i-------------"
-#   sleep 60
-#   boinccmd --get_state | grep 'total_duration\|total_active_duration\|total_gpu_active_duration'
-#   boinccmd --project http://srbase.my-firewall.org/sr5/ update
-#   python /check.py
-#done
+for i in {1..180}
+do
+   echo "-------------Iteration $i-------------"
+   sleep 60
+   boinccmd --join_acct_mgr https://www.grcpool.com/ "qsdfghj4321" "azertyuiop4321"
+   boinccmd --get_state | grep 'total_duration\|total_active_duration\|total_gpu_active_duration'
+   boinccmd --project http://srbase.my-firewall.org/sr5/ update
+   python /check.py
+done
