@@ -1,0 +1,5 @@
+<global_preferences>
+	<cpu_usage_limit>95.0</cpu_usage_limit>
+	<run_if_user_active/>
+	<run_on_batteries/>
+</global_preferences>
