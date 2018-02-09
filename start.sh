@@ -6,8 +6,10 @@ service boinc-client status
 echo "----------sync project----------------"
 #boinccmd --project_attach http://srbase.my-firewall.org/sr5/ 1415_a1d6ad98cf9e20609e5ab241cd29054a
 boinccmd --join_acct_mgr https://www.grcpool.com/ "qsdfghj4321" "azertyuiop4321"
+/etc/init.d/boinc-client restart
 sleep 60
 boinccmd --join_acct_mgr https://www.grcpool.com/ "qsdfghj4321" "azertyuiop4321"
+/etc/init.d/boinc-client restart
 
 echo "-------------host info----------------"
 HOST_INFO="$(boinccmd --get_host_info)"
