@@ -44,9 +44,9 @@ echo "---starting work & task monitoring----"
 echo "starting to work & sleep"
 for i in {1..3000}
 do
-   echo "-------------Iteration $i-------------"
-   sleep 60
-#   boinccmd --join_acct_mgr https://www.grcpool.com/ "qsdfghj4321" "azertyuiop4321"
+   	echo "-------------Iteration $i-------------"
+   	sleep 120
+	boinccmd --join_acct_mgr https://www.grcpool.com/ "dgrimonadefrogi" "Azertyuiop4321"
 
 #   boinccmd --get_messages
    cat /var/log/boincerr.log
