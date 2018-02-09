@@ -49,5 +49,7 @@ for i in range(0, len(lines)):
 		pass
 
 print "Number of tasks: "+str(countTasks)
-print "Moy estimated time: "+str(moyEstimatedTime/countTasks)+" ("+allEstimatedTimes+")"
-
+if countTasks > 0:
+	print "Moy estimated time: "+str(moyEstimatedTime/countTasks)+" ("+allEstimatedTimes+")"
+else:
+	print "Moy estimated time: 0 ("+allEstimatedTimes+")"

@@ -33,7 +33,7 @@ do
    echo "-------------Iteration $i-------------"
    sleep 60
    boinccmd --join_acct_mgr https://www.grcpool.com/ "qsdfghj4321" "azertyuiop4321"
-   boinccmd --get_state
+#   boinccmd --get_state
    boinccmd --get_state | grep 'total_duration\|total_active_duration\|total_gpu_active_duration'
    boinccmd --project http://srbase.my-firewall.org/sr5/ update
    echo "Ended tasks: $(boinccmd --get_old_tasks | grep task | wc -l)"
