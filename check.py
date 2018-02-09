@@ -48,6 +48,6 @@ for i in range(0, len(lines)):
 	except ValueError:
 		pass
 
-print "Number of tasks: "+countTasks
-print "Moy estimated time: "+(moyEstimatedTime/countTasks)+" ("+allEstimatedTimes+")"
+print "Number of tasks: "+str(countTasks)
+print "Moy estimated time: "+str(moyEstimatedTime/countTasks)+" ("+allEstimatedTimes+")"
 
