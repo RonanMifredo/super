@@ -13,6 +13,9 @@ taskName = ""
 projectUrl = ""
 taskEstimatedTimeString = ""
 
+countTasks = 0
+moyEstimatedTime = 0
+allEstimatedTimes = ""
 
 for i in range(0, len(lines)):
 	try:
@@ -33,10 +36,18 @@ for i in range(0, len(lines)):
 		# print taskEstimatedTimeString
 		# print "------"
 		time = float(taskEstimatedTimeString)
+		moyEstimatedTime += time
+		allEstimatedTimes += time+" "
 		# 3000=50min
 		if time > 3000:
 			print "stopping task"+taskName+" for project "+projectUrl
 			subprocess.check_output(["boinccmd", "--task", projectUrl, taskName, "abort"])
 
+		++countTasks
+
 	except ValueError:
 		pass
+
+print "Number of tasks: "+countTasks
+print "Moy estimated time: "+(moyEstimatedTime/countTasks)+" ("+allEstimatedTimes+")"
+
